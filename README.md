@@ -28,7 +28,7 @@ True random vectors in a unit ball, which has higher chance around center
 local randvec = Truernd.ConcBall.UnitVec() -- Generate true random vectors in a unit ball with a higher chance around the center
 ```
 
-True random quarternions with 45 degree rotation
+True random quarternions with a 45-degree rotation
 ```lua
 local randquat = Truernd.Quat.RangedAxisAngle(math.pi / 4) -- Generate true random quaternions with a 45-degree rotation
 ```
