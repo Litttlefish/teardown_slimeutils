@@ -36,7 +36,7 @@ Fastrnd = {
         UnitVec = function()
             return VecScale(VecNormalize({samples[random(128)], samples[random(128)], samples[random(128)]}), random())
         end,
-        RangedVec = function (r)
+        RangedVec = function(r)
             return VecScale(VecNormalize({samples[random(128)], samples[random(128)], samples[random(128)]}), random() * r)
         end
     },
@@ -66,7 +66,7 @@ Truernd={
         UnitVec = function()
             return VecScale(VecNormalize({fast_std_norm_distr(), fast_std_norm_distr(), fast_std_norm_distr()}), random() ^ (1 / 3))
         end,
-        RangedVec = function (r)
+        RangedVec = function(r)
             return VecScale(VecNormalize({fast_std_norm_distr(), fast_std_norm_distr(), fast_std_norm_distr()}), random() ^ (1 / 3) * r)
         end
     },
@@ -74,7 +74,7 @@ Truernd={
         UnitVec = function()
             return VecScale(VecNormalize({fast_std_norm_distr(), fast_std_norm_distr(), fast_std_norm_distr()}), random())
         end,
-        RangedVec = function (r)
+        RangedVec = function(r)
             return VecScale(VecNormalize({fast_std_norm_distr(), fast_std_norm_distr(), fast_std_norm_distr()}), random() * r)
         end
     },
