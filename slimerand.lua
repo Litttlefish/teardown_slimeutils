@@ -1,9 +1,9 @@
--- version 1.0.1
+-- version 1.0.1, source: https://github.com/Litttlefish/teardown_slimeutils
 -- please do not rename slimerand.lua, thanks.
 --init {
-    local random = math.random
     math.randomseed(tonumber(tostring(newproxy(false)):sub(19, -2), 16))
-    local samples, cbrs = {},{} -- pre-calculated data
+    local random = math.random
+    local samples, cbrs = {}, {} -- pre-calculated data
 	for i = 128, 1, -1 do
 		local r = random()
 		samples[i], cbrs[i] = (r ^ 0.135 - (1 - r) ^ 0.135) / 0.1975, r ^ (1 / 3) -- fast standard normal distribution
@@ -36,7 +36,7 @@ Fastrnd = {
         UnitVec = function()
             return VecScale(VecNormalize({samples[random(128)], samples[random(128)], samples[random(128)]}), random())
         end,
-        RangedVec = function(r)
+        RangedVec = function (r)
             return VecScale(VecNormalize({samples[random(128)], samples[random(128)], samples[random(128)]}), random() * r)
         end
     },
@@ -66,7 +66,7 @@ Truernd={
         UnitVec = function()
             return VecScale(VecNormalize({fast_std_norm_distr(), fast_std_norm_distr(), fast_std_norm_distr()}), random() ^ (1 / 3))
         end,
-        RangedVec = function(r)
+        RangedVec = function (r)
             return VecScale(VecNormalize({fast_std_norm_distr(), fast_std_norm_distr(), fast_std_norm_distr()}), random() ^ (1 / 3) * r)
         end
     },
@@ -74,7 +74,7 @@ Truernd={
         UnitVec = function()
             return VecScale(VecNormalize({fast_std_norm_distr(), fast_std_norm_distr(), fast_std_norm_distr()}), random())
         end,
-        RangedVec = function(r)
+        RangedVec = function (r)
             return VecScale(VecNormalize({fast_std_norm_distr(), fast_std_norm_distr(), fast_std_norm_distr()}), random() * r)
         end
     },
