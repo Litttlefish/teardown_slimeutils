@@ -1,8 +1,8 @@
--- version 1.0.1
+-- version 1.0.2, source: https://github.com/Litttlefish/teardown_slimeutils
 -- please do not rename slimegcfunc.lua, thanks.
 
 --{
-    getmetatable(newproxy(true)).__gc = function(self) upongc(self) return newproxy(self) end
+    getmetatable(newproxy(true)).__gc = function(self) upongc(self); collectgarbage("collect") return newproxy(self) end
 --}
 
 --[[
@@ -12,5 +12,5 @@
     newproxy(proxy) creates another proxy that shares the metatable with the original one
     so what's happening here is:
         calls upongc() function when being recycled
-        then revive itself with a new proxy that has the same metatable so it can be recycled again
+        then revive the metatable with a new proxy so it can be recycled again
 --]]
