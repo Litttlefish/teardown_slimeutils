@@ -57,3 +57,15 @@ end
 4. Observe the debug message to confirm GC detection.
 
 5. Customize it to meet your needs.
+
+PS: You may need an explicit GC call if your `upongc(t)` function generated too many tables, like this:
+
+```lua
+function upongc(t)
+    local list = GetShapes(nil, true) -- this is a HUGE table!
+    -- do your stuff...
+    -- ...at the end of the function, you need to release memory manually...
+    list = nil
+    return collectgarbage("collect") -- ...and let lua do the rest of the stuff.
+end
+```
