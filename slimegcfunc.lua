@@ -1,8 +1,8 @@
--- version 1.0.2, source: https://github.com/Litttlefish/teardown_slimeutils
+-- version 1.0.3, source: https://github.com/Litttlefish/teardown_slimeutils
 -- please do not rename slimegcfunc.lua, thanks.
 
 --{
-    getmetatable(newproxy(true)).__gc = function(self) upongc(self); collectgarbage("collect") return newproxy(self) end
+    getmetatable(newproxy(true)).__gc = function(self) upongc(self) return newproxy(self) end
 --}
 
 --[[
